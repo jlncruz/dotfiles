@@ -118,8 +118,8 @@ fi
 
 set -o vi
 
-export EDITOR='neovim'
-export VISUAL='neovim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 export PATH="/home/jay/bin:$PATH"
 
