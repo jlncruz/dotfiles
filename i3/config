@@ -252,7 +252,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-exec_always --no-startup-id feh --bg-fill "/home/jay/shared_pictures/Saved Pictures/advtimeupscaled.jpg"
+exec_always --no-startup-id feh --bg-fill "/home/jay/sync_jay/personal/pictures/wallpapers/advtimeupscaled.jpg"
 
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -266,8 +266,8 @@ exec --no-startup-id i3-msg 'workspace 2: exec /usr/bin/kitty'
 # exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # media keys
-# bindsym F7 exec playerctl play-pause
-# bindsym F8 exec playerctl next
+bindsym F7 exec playerctl play-pause
+bindsym F8 exec playerctl next
 
 # application rules
         # firefox
