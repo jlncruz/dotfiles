@@ -14,7 +14,7 @@ general {
 
 order += "volume master"
 order += "cpu_usage"
-order += "disk /"
+order += "disk /home"
 order += "battery all"
 order += "load"
 order += "memory"
@@ -68,10 +68,10 @@ tztime local {
 }
 
 load {
-        format = "%1min"
+        format = "LOAD: %1min"
 }
 
-disk "/" {
+disk "/home" {
         format = "%avail"
 }
 cpu_temperature 0 {

@@ -10,9 +10,9 @@ alias ls='ls --color=auto'
 alias ll='ls -alF --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls -CF --color=auto'
-alias git='sudo git'
-alias monitor1='xrandr --output Virtual1 --mode 1920x1080'
-alias monitor2='xrandr --output Virtual1 --mode 1920x1200'
+alias notes='cd sync_jay/school/notes/'
+alias python_work='cd sync_jay/personal/programming/python_crash_course/python_work'
+# alias git='sudo git'
 
 set -o vi
 
@@ -28,4 +28,8 @@ shopt -s nocaseglob
 # for example, cd /vr/lgo/apaache would find /var/log/apache
 shopt -s cdspell
 
-export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
+
+source ~/bashscripts/custom_bash_commands.sh
+
+export GCM_CREDENTIAL_STORE=cache

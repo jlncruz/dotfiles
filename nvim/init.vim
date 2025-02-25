@@ -1,6 +1,6 @@
 " call plug#begin('~/appdata/local/nvim-data/site/autoload/plug')
 
-" plug 'ms-jpq/coq_nvim' 
+" plug 'ms-jpq/coq_nvim'
 " plug 'nvim-treesitter/nvim-treesitter'
 
 "  uncomment these if you want to manage lsp servers from neovim
@@ -25,7 +25,8 @@ set completeopt=noinsert,menuone,noselect
 set hidden
 set inccommand=split
 set mouse=a
-set number
+""set number
+set relativenumber
 set splitbelow splitright
 set title
 set ttimeoutlen=0
@@ -43,12 +44,34 @@ set t_co=256
 lua require('config')
 lua require('remap')
 
+set tabstop=8
+set shiftwidth=8
+
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
 
 " Removes gray bar next to the line numbers
 :set signcolumn=no
 
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
+
+" fix vim airline bugged out screen, duplicated lines, duplicate mode line
+" (EDIT: DOESNT WORK)
+" :autocmd BufWritePost * :redraw
+"
+" changes comment hl color
+highlight Comment ctermfg=gray
+
+" fix vim-airline once and for all?
+	" this line only changed the symbol that was causing the issue but the
+	" real fix is to just disable the whitespace extensions because it is
+	" useless
+	" let g:airline#extensions#whitespace#symbol = '!'
+	let g:airline#extensions#whitespace#enabled = 0
+"
 " VimTeX config ----------------------------------------------------------
 
 " This is necessary for VimTeX to load properly. The "indent" is optional.
@@ -62,10 +85,10 @@ syntax enable
 
 " Viewer options: One may configure the viewer either by specifying a built-in
 " viewer method:
-let g:vimtex_view_method = 'sumatrapdf'
+let g:vimtex_view_method = 'zathura'
 
 " Or with a generic interface:
-let g:vimtex_view_general_viewer = 'sumatrapdf'
+let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 
 " VimTeX uses latexmk as the default compiler backend. If you use it, which is
@@ -79,3 +102,7 @@ let g:vimtex_compiler_method = 'latexrun'
 " following line. The default is usually fine and is the symbol "\".
 " let maplocalleader = ","
 " ------------------------------------------------------------------------
+
+" java-syntax plugin highlighting config
+
+"highlight link javaIdentifier NONE
